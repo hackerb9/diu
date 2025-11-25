@@ -14,6 +14,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using System.Configuration;
 using HDOS;
 using static DiskUtility.Form1;
 
@@ -72,7 +73,7 @@ namespace DiskUtility
 
         public int FileCount = 0;
         public int TotalSize = 0;
-
+    
         public GroupBox FileViewerBorder;
         public RichTextBox FileViewerBox;
   
@@ -205,7 +206,7 @@ namespace DiskUtility
             //BtnDelete.Enabled = false;
             BtnView.Enabled = false;
         }
-
+//
         private void ReadData()
         {
             // Read existing user settings (if any)
@@ -1031,7 +1032,7 @@ namespace DiskUtility
 
         private void ProcessFileDOS(string diskName) // for Z100 MS-DOS disks
         {
-            if (!diskName.EndsWith(".IMG"))
+            if (!diskName.EndsWith(".IMG",StringComparison.OrdinalIgnoreCase))
             {
                 MessageBox.Show("Only DOS IMG files are supported", "File Type error", MessageBoxButtons.OK);
                 return;
