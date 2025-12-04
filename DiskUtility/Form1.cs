@@ -218,6 +218,11 @@ namespace DiskUtility
             addFilesLoc = userSettings.addFilesLoc;
             if (addFilesLoc == "")
                 addFilesLoc = folderBrowserDialog2.SelectedPath;
+
+	    if (options.Contains("T"))
+		btnOption.Text = "Text Trunc On";
+	    else
+		btnOption.Text = "Text Trunc Off";
         }
 
         private void SaveData()
